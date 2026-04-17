@@ -4,6 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { ModalDetalleProductoComponent } from './modal-detalle-producto.component';
+import { MessageService } from 'primeng/api';
+import { HeaderComponent } from '../../../../shared/components/header/header.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ModalDetalleProductoComponent', () => {
   let component: ModalDetalleProductoComponent;
@@ -11,9 +14,9 @@ describe('ModalDetalleProductoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalDetalleProductoComponent ]
-    })
-    .compileComponents();
+      imports: [ModalDetalleProductoComponent, HeaderComponent,HttpClientTestingModule],
+      providers: [MessageService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

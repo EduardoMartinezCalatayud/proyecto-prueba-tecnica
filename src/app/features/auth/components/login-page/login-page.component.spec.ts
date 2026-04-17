@@ -4,6 +4,8 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { LoginPageComponent } from './login-page.component';
+import { MessageService } from 'primeng/api';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LoginPageComponent', () => {
   let component: LoginPageComponent;
@@ -11,9 +13,9 @@ describe('LoginPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginPageComponent ]
-    })
-    .compileComponents();
+      imports: [LoginPageComponent, HttpClientTestingModule],
+      providers: [MessageService],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
