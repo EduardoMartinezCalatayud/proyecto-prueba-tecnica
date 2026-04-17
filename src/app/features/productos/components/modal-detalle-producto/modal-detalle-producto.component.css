@@ -1,0 +1,69 @@
+.detalle-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.detalle-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+
+.detalle-img {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.detalle-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+.detalle-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+.detalle-desc {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.detalle-precio {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #054BA6;
+}
+
+.detalle-categoria {
+  font-size: 0.8rem;
+  background: #e9f2ff;
+  color: #054BA6;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+@media (max-width: 640px) {
+  .detalle-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .detalle-right {
+    align-items: center;
+  }
+}

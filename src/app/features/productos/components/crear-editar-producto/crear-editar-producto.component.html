@@ -1,0 +1,106 @@
+<div *ngIf="loading()" class="loading-overlay">
+  <p-progressSpinner
+    strokeWidth="4"
+    animationDuration=".8s"
+    styleClass="custom-spinner"
+  >
+  </p-progressSpinner>
+  <span class="loading-text">Cargando producto...</span>
+</div>
+<p-card [header]="esEditar ? 'Editar Producto' : 'Registrar Producto'">
+  <form *ngIf="form" [formGroup]="form" class="form-grid">
+    <div class="form-left">
+      <div class="field">
+        <label>Nombre</label>
+        <input
+          pInputText
+          formControlName="title"
+          class="p-inputtext-sm w-full"
+        />
+        @if (form.get("title")?.touched && form.get("title")?.invalid) {
+          <small class="error">Nombre es obligatorio</small>
+        }
+      </div>
+
+      <div class="field">
+        <label>Precio</label>
+        <p-inputNumber
+          formControlName="price"
+          mode="currency"
+          currency="PEN"
+          inputStyleClass="p-inputtext-sm w-full"
+        >
+        </p-inputNumber>
+        @if (form.get("price")?.touched && form.get("price")?.invalid) {
+          <small class="error">Precio es obligatorio</small>
+        }
+      </div>
+
+      <div class="field">
+        <label>Categoría</label>
+        <input
+          pInputText
+          formControlName="category"
+          class="p-inputtext-sm w-full"
+        />
+        @if (form.get("category")?.touched && form.get("category")?.invalid) {
+          <small class="error">Categoría es obligatoria</small>
+        }
+      </div>
+
+      <div class="field">
+        <label>Descripción</label>
+        <textarea
+          pInputTextarea
+          formControlName="description"
+          rows="4"
+          class="w-full"
+        >
+        </textarea>
+        @if (
+          form.get("description")?.touched && form.get("description")?.invalid
+        ) {
+          <small class="error">Descripción es obligatoria</small>
+        }
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Imagen</label>
+
+      <input
+        type="file"
+        accept="image/*"
+        (change)="onFileSelect($event)"
+        class="p-inputtext-sm w-full"
+      />
+
+      @if (form.get("image")?.touched && form.get("image")?.invalid) {
+        <small class="error">Imagen es obligatoria</small>
+      }
+
+      <div class="image-preview-card" *ngIf="imagePreview">
+        <img [src]="imagePreview()" />
+      </div>
+    </div>
+
+    <div class="acciones full-width">
+      <button
+        pButton
+        [label]="esEditar ? 'Actualizar Producto' : 'Registrar Producto'"
+        icon="pi pi-save"
+        class="p-button-sm"
+        (click)="guardar()"
+      ></button>
+
+      <button
+        pButton
+        label="Cancelar"
+        severity="secondary"
+        icon="pi pi-times"
+        class="p-button-sm"
+        (click)="cancelar()"
+      ></button>
+    </div>
+  </form>
+</p-card>

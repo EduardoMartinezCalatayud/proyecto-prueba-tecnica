@@ -16,7 +16,6 @@ html, body {
   color: #374151;
 }
 
-/* CONTENEDOR */
 .login-container {
   height: 100vh;
   display: flex;
@@ -26,7 +25,6 @@ html, body {
   padding: 1rem;
 }
 
-/* CARD */
 .login-card {
   width: 100%;
   max-width: 400px;
@@ -41,7 +39,6 @@ html, body {
   transform: translateY(-5px);
 }
 
-/* FORM */
 .field {
   margin-bottom: 1.2rem;
 }
@@ -51,7 +48,6 @@ html, body {
   font-size: 0.8rem;
 }
 
-/*  PRIME NG OVERRIDE */
 :host ::ng-deep .p-inputtext,
 :host ::ng-deep .p-password input {
   width: 100%;

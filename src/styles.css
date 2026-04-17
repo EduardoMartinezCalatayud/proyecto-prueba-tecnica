@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+/*INICIO OVERLAY */
+.loading-overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(2px);
+
+  z-index: 10;
+}
+
+/* TEXTO */
+.loading-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* SPINNER  */
+.custom-spinner svg {
+  width: 50px;
+  height: 50px;
+}
+
+.custom-spinner circle {
+  stroke: #054BA6;
+}
+
+/*FIN OVERLAY*/
+
+.error {
+  color: #e24c4c;
+  font-size: 0.8rem;
+}

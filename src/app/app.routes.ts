@@ -30,29 +30,6 @@ export const routes: Routes = [
       },
     ],
   },
-  // {
-  //   path: 'productos',
-  //   canActivate: [authGuard],
-  //   loadChildren: () =>
-  //     import('./features/productos/productos.route').then(
-  //       (m) => m.productosRoutes,
-  //     ),
-  // },
-  // {
-  //   path: '',
-  //   loadComponent: () =>
-  //     import('./shared/layout/main-layout/main-layout.component').then(
-  //       (m) => m.MainLayoutComponent
-  //     ),
-  //   canActivate: [authGuard],
-  //   canActivateChild: [authGuard],
-  //   children: [
-  //     {
-  //       path: 'productos',
-  //       loadChildren: () => import('./features/productos/productos.route').then((m) => m.productosRoutes),
-  //     },
-  //   ]
-  // },
   {
     path: '**',
     redirectTo: 'auth/login',

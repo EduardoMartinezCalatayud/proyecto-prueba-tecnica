@@ -1,3 +1,54 @@
-<p>
-  bandeja-productos works!
-</p>
+<div class="container">
+  <h2 class="titulo">Bandeja de Productos</h2>
+  <p-card>
+    <form [formGroup]="form" class="filtro-container">
+      <div class="campo">
+        <label>Nombre del producto</label>
+        <input
+          pInputText
+          formControlName="nombreProducto"
+          class="p-inputtext-sm"
+          placeholder="Ingrese nombre del producto"
+        />
+      </div>
+
+      <div class="acciones">
+        <button
+          pButton
+          label="Buscar"
+          icon="pi pi-search"
+          type="button"
+          class="p-button-sm"
+          (click)="buscar()"
+        ></button>
+
+        <button
+          pButton
+          label="Limpiar"
+          icon="pi pi-times"
+          severity="secondary"
+          type="button"
+          class="p-button-sm"
+          (click)="limpiar()"
+        ></button>
+
+        <button
+          pButton
+          label="Agregar"
+          icon="pi pi-plus"
+          severity="warning"
+          type="button"
+          class="p-button-sm"
+          (click)="crear()"
+        ></button>
+      </div>
+    </form>
+  </p-card>
+  <p-card class="mt-3">
+    <app-grid-bandeja-productos
+      [arrayProductos]="arrayProductos()"
+      [loading]="loading()"
+      (eliminar)="eliminarProducto($event)"
+    ></app-grid-bandeja-productos>
+  </p-card>
+</div>

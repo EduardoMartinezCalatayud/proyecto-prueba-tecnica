@@ -29,7 +29,6 @@ import { environment } from '../../../../../environments/environment';
     ToastModule,
     CommonModule,
   ],
-  providers: [MessageService],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })

@@ -1,0 +1,61 @@
+<p-dialog
+  header="Detalle del Producto"
+  [(visible)]="visibleDialog"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  (onHide)="cerrar()"
+  [breakpoints]="{
+    '960px': '75vw',
+    '640px': '95vw',
+  }"
+  [closable]="true"
+  [draggable]="false"
+  [resizable]="false"
+>
+<div *ngIf="loading()" class="loading-overlay">
+  <p-progressSpinner
+    strokeWidth="4"
+    animationDuration=".8s"
+    styleClass="custom-spinner"
+  >
+  </p-progressSpinner>
+
+  <span class="loading-text">Cargando producto...</span>
+</div>
+  <div *ngIf="!loading && productoResponse" class="detalle-container">
+    <p-card>
+      <div class="detalle-left">
+        <img
+          [src]="productoResponse.image"
+          (error)="onImgError($event)"
+          [alt]="productoResponse.title"
+          class="detalle-img"
+        />
+      </div>
+    </p-card>
+    <p-card>
+      <div class="detalle-right">
+        <h3 class="detalle-title">
+          {{ productoResponse.title }}
+        </h3>
+        <p class="detalle-categoria">
+          {{ productoResponse.category }}
+        </p>
+
+        <p class="detalle-desc">
+          {{ productoResponse.description }}
+        </p>
+
+        <p class="detalle-precio">S/ {{ productoResponse.price }}</p>
+      </div>
+    </p-card>
+  </div>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      label="Cerrar"
+      class="p-button-sm"
+      (click)="cerrar()"
+    ></button>
+  </ng-template>
+</p-dialog>

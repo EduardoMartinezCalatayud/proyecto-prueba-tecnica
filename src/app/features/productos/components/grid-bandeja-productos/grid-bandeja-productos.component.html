@@ -1,0 +1,63 @@
+<div *ngIf="loading" class="loading-overlay">
+  <p-progressSpinner
+    strokeWidth="4"
+    animationDuration=".8s"
+    styleClass="custom-spinner"
+  >
+  </p-progressSpinner>
+
+  <span class="loading-text">Cargando productos...</span>
+</div>
+<p-table
+  *ngIf="!loading"
+  [value]="arrayProductos"
+  [paginator]="true"
+  [rows]="10"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  responsiveLayout="scroll"
+  class="p-datatable-sm"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Categoría</th>
+      <th>Imagen</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-producto>
+    <tr>
+      <td>{{ producto.title }}</td>
+
+      <td>S/ {{ producto.price }}</td>
+
+      <td>
+        <p-tag [value]="producto.category"></p-tag>
+      </td>
+      <td>
+        <img
+          [src]="producto.image"
+          (error)="onImgError($event)"
+          [alt]="producto.title"
+          class="producto-img"
+        />
+      </td>
+      <td>
+        <button
+          pButton
+          icon="pi pi-ellipsis-v"
+          class="p-button-text p-button-sm"
+          (click)="abrirMenu($event, producto)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+<p-menu #menu [popup]="true" [model]="acciones" appendTo="body"> </p-menu>
+<app-modal-detalle-producto
+  [(visibleDialog)]="visibleDialog"
+  [productoSeleccionado]="productoSeleccionado"
+></app-modal-detalle-producto>
+<p-confirmDialog></p-confirmDialog>
