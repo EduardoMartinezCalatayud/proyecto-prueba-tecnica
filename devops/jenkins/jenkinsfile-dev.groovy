@@ -2,7 +2,7 @@ node {
     def REPO_URL = 'https://github.com/EduardoMartinezCalatayud/proyecto-prueba-tecnica.git'
     def BRANCH = 'develop'
     def ANGULAR_ENV = 'production'
-    def BUILD_FOLDER = 'dist/proyecto-prueba-tecnica'
+    def BUILD_FOLDER = 'dist/proyecto-prueba-tecnica/browser'
     def DEPLOY_PATH = '/var/www/dev/prueba-tecnica'
 
     stage('Preparar entorno') {
