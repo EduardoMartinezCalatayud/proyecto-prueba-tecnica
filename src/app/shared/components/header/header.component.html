@@ -1,0 +1,24 @@
+<p-menubar [model]="items" styleClass="app-header">
+  <ng-template pTemplate="start">
+    <div class="logo-container">
+      <span class="logo-text">4 BYTE SOLUTIONS</span>
+    </div>
+  </ng-template>
+
+  <!-- 🔹 USUARIO -->
+  <ng-template pTemplate="end">
+    <div class="user-section">
+      <span class="username">EDUARDO MARTINEZ - DEVELOPER</span>
+
+      <p-avatar icon="pi pi-user" shape="circle" size="large"> </p-avatar>
+
+      <button
+        pButton
+        type="button"
+        icon="pi pi-sign-out"
+        class="p-button-text logout-btn"
+        (click)="logout()"
+      ></button>
+    </div>
+  </ng-template>
+</p-menubar>

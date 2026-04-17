@@ -1,3 +1,38 @@
-<p>
-  login-page works!
-</p>
+<p-toast></p-toast>
+
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Iniciar Sesión</h2>
+      <p class="subtitle-sesion">Bienvenido, ingresa tus credenciales</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="login()" class="p-fluid">
+      <div class="field">
+        <label>Usuario</label>
+        <input pInputText formControlName="username" />
+
+        @if (form.get("username")?.touched && form.get("username")?.invalid) {
+          <small class="error">Usuario es obligatorio</small>
+        }
+      </div>
+
+      <div class="field">
+        <label>Contraseña</label>
+        <p-password formControlName="password" [feedback]="false"></p-password>
+
+        @if (form.get("password")?.invalid && form.get("password")?.touched) {
+          <small class="error">Contraseña es obligatoria</small>
+        }
+      </div>
+
+      <p-button
+        label="Ingresar"
+        icon="pi pi-sign-in"
+        [loading]="loading"
+        styleClass="w-full"
+        type="submit"
+      ></p-button>
+    </form>
+  </div>
+</div>

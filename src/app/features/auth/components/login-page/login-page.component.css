@@ -1,0 +1,76 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background: #e6f0f2;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-card label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #374151;
+}
+
+/* CONTENEDOR */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e6f0f2;
+  padding: 1rem;
+}
+
+/* CARD */
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+}
+
+/* FORM */
+.field {
+  margin-bottom: 1.2rem;
+}
+
+.error {
+  color: #e24c4c;
+  font-size: 0.8rem;
+}
+
+/*  PRIME NG OVERRIDE */
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-password input {
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  box-shadow: none;
+  padding: 0.75rem;
+}
+
+/* focus */
+:host ::ng-deep .p-inputtext:focus,
+:host ::ng-deep .p-password input:focus {
+  outline: none;
+  border-bottom: 2px solid #3b82f6;
+}
+
+/* botón */
+:host ::ng-deep .p-button {
+  width: 100%;
+  border-radius: 8px;
+}

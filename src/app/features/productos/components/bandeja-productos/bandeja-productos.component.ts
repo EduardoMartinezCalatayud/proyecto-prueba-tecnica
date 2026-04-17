@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-bandeja-productos',
+  standalone:true,
   templateUrl: './bandeja-productos.component.html',
   styleUrls: ['./bandeja-productos.component.css']
 })

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { AuthLoginResponse } from '../models/Response/authLoginResponse.model';
 import { AuthLoginRequest } from '../models/Request/authLoginRequest.model';
+import { StatusResponse } from '../../../shared/models/statusResponse';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {

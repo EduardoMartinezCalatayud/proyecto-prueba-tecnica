@@ -1,0 +1,30 @@
+.app-header {
+  border-radius: 0;
+  border: none;
+  padding: 0 1rem;
+}
+
+.logo-container {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #054BA6;
+}
+
+.logo-text {
+  letter-spacing: 1px;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.username {
+  font-weight: 500;
+  color: #333;
+}
+
+.logout-btn {
+  color: #d9534f;
+}
