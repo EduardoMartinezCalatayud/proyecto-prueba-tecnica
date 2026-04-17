@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -16,7 +16,8 @@ import { AuthService } from '../../services/auth.service';
 import { AuthLoginRequest } from '../../models/Request/authLoginRequest.model';
 import { AuthLoginResponse } from '../../models/Response/authLoginResponse.model';
 import { SeguridadService } from '../../../../shared/services/seguridad.service';
-import { environment } from '../../../../../environments/environment';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
@@ -28,13 +29,14 @@ import { environment } from '../../../../../environments/environment';
     ButtonModule,
     ToastModule,
     CommonModule,
+    ProgressSpinnerModule,
   ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent implements OnInit {
   form!: FormGroup;
-  loading = false;
+  loading = signal(false);
   loginResponse!: AuthLoginResponse;
 
   constructor(
@@ -61,8 +63,7 @@ export class LoginPageComponent implements OnInit {
       this.form.markAllAsTouched();
       return;
     }
-
-    this.loading = true;
+    this.loading.set(true);
 
     let _form = this.form.getRawValue();
     let request: AuthLoginRequest = {
@@ -70,40 +71,38 @@ export class LoginPageComponent implements OnInit {
       password: _form.password,
     };
 
-    this.authService.login(request).subscribe({
-      next: (response) => {
-        console.log(response);
-        if (!response?.token) {
+    this.authService
+      .login(request)
+      .pipe(finalize(() => this.loading.set(false)))
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+          if (!response?.token) {
+            this.messageService.add({
+              severity: 'warn',
+              summary: 'ERROR',
+              detail: 'Error de credenciales',
+            });
+            return;
+          }
+          this.loginResponse = response;
+
+          this.seguridadService.setToken(this.loginResponse.token);
           this.messageService.add({
-            severity: 'warn',
-            summary: 'ERROR',
-            detail: 'Error de credenciales',
+            severity: 'success',
+            summary: 'Correcto',
+            detail: 'Inicio de sesión exitoso',
           });
-
-          this.loading = false;
-          return;
-        }
-        this.loginResponse = response;
-
-        this.seguridadService.setToken(this.loginResponse.token);
-        this.messageService.add({
-          severity: 'success',
-          summary: 'Correcto',
-          detail: 'Inicio de sesión exitoso',
-        });
-        this.router.navigate(['/productos']);
-        this.loading = false;
-      },
-      error: (err) => {
-        console.log(err);
-        this.messageService.add({
-          severity: 'warn',
-          summary: 'ERROR',
-          detail: err.error,
-        });
-
-        this.loading = false;
-      },
-    });
+          this.router.navigate(['/productos']);
+        },
+        error: (err) => {
+          console.log(err);
+          this.messageService.add({
+            severity: 'error',
+            summary: 'ERROR',
+            detail: 'Usuario y/o contaseña incorrectos',
+          });
+        },
+      });
   }
 }

@@ -1,5 +1,13 @@
 <p-toast></p-toast>
-
+<div *ngIf="loading()" class="loading-overlay">
+  <p-progressSpinner
+    strokeWidth="4"
+    animationDuration=".8s"
+    styleClass="custom-spinner"
+  >
+  </p-progressSpinner>
+  <span class="loading-text">Validando...</span>
+</div>
 <div class="login-container">
   <div class="login-card">
     <div class="login-header">
@@ -29,7 +37,7 @@
       <p-button
         label="Ingresar"
         icon="pi pi-sign-in"
-        [loading]="loading"
+        [loading]="loading()"
         styleClass="w-full"
         type="submit"
       ></p-button>
