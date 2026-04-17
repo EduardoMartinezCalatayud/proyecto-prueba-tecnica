@@ -22,7 +22,7 @@
 
   <span class="loading-text">Cargando producto...</span>
 </div>
-  <div *ngIf="!loading && productoResponse" class="detalle-container">
+  <div *ngIf="!loading() && productoResponse" class="detalle-container">
     <p-card>
       <div class="detalle-left">
         <img

@@ -71,6 +71,7 @@ export class ModalDetalleProductoComponent implements OnChanges {
         next: (response) => {
           if (response) {
             this.productoResponse = response;
+            console.log('pr',this.productoResponse)
           }
         },
         error: (err) => {
