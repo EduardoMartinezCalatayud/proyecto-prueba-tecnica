@@ -81,7 +81,6 @@ Este comportamiento se gestiona mediante un interceptor HTTP, permitiendo adjunt
 
 Esto permitió acelerar el desarrollo y mantener consistencia visual.
 
----
 
 ### Consumo de API
 
@@ -89,7 +88,6 @@ Esto permitió acelerar el desarrollo y mantener consistencia visual.
 * Se implementó un `ProductoService` para desacoplar la lógica de acceso a datos.
 * Se implementó un `AuthService` para consumir el servicio de login.
 
----
 
 ### Manejo de estado en navegación
 
@@ -98,7 +96,6 @@ Esto permitió acelerar el desarrollo y mantener consistencia visual.
   * Reflejar cambios (crear / editar) en la tabla sin recargar datos desde la API
   * Mejorar la experiencia de usuario y rendimiento
 
----
 
 ### Pruebas unitarias
 
@@ -116,8 +113,6 @@ Cobertura aplicada en:
 * Emisión de eventos (`EventEmitter`)
 * Lógica de creación y edición
 * Simulación de servicios
-
----
 
 
 ## MEJORAS FUTURAS
