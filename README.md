@@ -2,23 +2,28 @@
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
 
-# REPOSITORIO
+## ENLACES
+
+### Repositorio
 
 Enlace de GitHub ([GitHub](https://github.com/EduardoMartinezCalatayud/proyecto-prueba-tecnica.git))
 
-# INSTRUCCIONES DE EJECUCIÓN
-## Servidor de desarrollo
+### Despliegue
+
+Enlace de Despliegue [Enlace](https://pruebatecnica.appsimon.com)
+
+## INSTRUCCIONES DE EJECUCIÓN
+### Instalación y Ejecución
 
 Ejecutar `npm install` para instalar dependencias proyecto, incluyendo PrimeNG y PrimeIcons.
 Ejecutar `npm start`. Accede `http://localhost:9003/` que es el puerto configurado en el package.json. La aplicación se recargará automáticamente si se realizan cambios en el código fuente.
 
-# PRUEBAS UNITARIAS
+## PRUEBAS UNITARIAS
 
-`ng test` Esto ejecutará las pruebas unitarias utilizando Karma. [Karma](https://karma-runner.github.io).
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Ejecutar `ng test` Esto ejecutará las pruebas unitarias utilizando Karma. [Karma](https://karma-runner.github.io).
 
 
-# DECISIONES TÉCNICAS
+## DECISIONES TÉCNICAS
 
 * Se utilizó Angular 17 con componentes standalone, evitando el uso innecesario de NgModules y simplificando la arquitectura de la aplicación.
 
@@ -32,7 +37,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ---
 
-## Separación de responsabilidades (componentes)
+### Separación de responsabilidades (componentes)
 
 FEATURE → AUTH (Componentes, Models, Services, Route)
 * `LoginPageComponent` → Autenticación
@@ -48,7 +53,7 @@ FEATURE → PRODUCTOS (Componentes, Models, Services, Route)
 
 ---
 
-## Configuración de routing, Seguridad y autenticación
+### Configuración de routing, Seguridad y autenticación
 
 Se configuró el enrutamiento de la aplicación utilizando el Router de Angular.
 Se definieron rutas por módulo funcional (auth, productos).
@@ -59,7 +64,7 @@ Se estructuró el uso de un layout principal (MainLayoutComponent) para encapsul
 
 --
 
-## UI y experiencia de usuario
+### UI y experiencia de usuario
 
 * Se utilizó **PrimeNG** para la construcción de la interfaz:
 
@@ -76,7 +81,7 @@ Esto permitió acelerar el desarrollo y mantener consistencia visual.
 
 ---
 
-## Consumo de API
+### Consumo de API
 
 * Se utilizó la **Fake Store API** como backend simulado para operaciones CRUD.
 * Se implementó un `ProductoService` para desacoplar la lógica de acceso a datos.
@@ -84,7 +89,7 @@ Esto permitió acelerar el desarrollo y mantener consistencia visual.
 
 ---
 
-## Manejo de estado en navegación
+### Manejo de estado en navegación
 
 * Se utilizó el **Router state** para:
 
@@ -93,7 +98,7 @@ Esto permitió acelerar el desarrollo y mantener consistencia visual.
 
 ---
 
-## Pruebas unitarias
+### Pruebas unitarias
 
 Se implementaron pruebas unitarias utilizando:
 
@@ -113,7 +118,7 @@ Cobertura aplicada en:
 ---
 
 
-# MEJORAS FUTURAS
+## MEJORAS FUTURAS
 
 * Implementar un **backend real** (Node.js, .NET, etc.) con persistencia en base de datos, ya que actualmente se utiliza Fake Store API (simulada).
 
