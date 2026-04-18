@@ -39,7 +39,6 @@ Ejecutar `ng test` Esto ejecutará las pruebas unitarias utilizando Karma. [Karm
   * `features/` → funcionalidades principales (auth, productos) 
   * `shared/` → componentes reutilizables (layout, header)
 
----
 
 ### Separación de responsabilidades (componentes)
 
@@ -55,7 +54,6 @@ FEATURE → PRODUCTOS (Componentes, Models, Services, Route)
 * `HeaderComponent` → Cabecera de la aplicación
 * `MainLayoutComponent` → Layout principal
 
----
 
 ### Configuración de routing, Seguridad y autenticación
 
@@ -65,8 +63,8 @@ Se aplicó protección de rutas mediante guards:
   * `AuthGuard` → acceso solo a usuarios autenticados
   * `NoAuthGuard` → evita acceso al login si ya está autenticado
 Se estructuró el uso de un layout principal (MainLayoutComponent) para encapsular las vistas protegidas.
-
---
+Authorization: Bearer {token}
+Este comportamiento se gestiona mediante un interceptor HTTP, permitiendo adjuntar automáticamente el token a todas las solicitudes protegidas.
 
 ### UI y experiencia de usuario
 
