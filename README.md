@@ -2,6 +2,10 @@
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.
 
+## DESCRIPCIÓN
+
+Aplicación web desarrollada en Angular que permite la gestión de productos, incluyendo funcionalidades de listado, creación, edición, eliminación y visualización de detalles, consumiendo la Fake Store API.
+
 ## ENLACES
 
 ### Repositorio
