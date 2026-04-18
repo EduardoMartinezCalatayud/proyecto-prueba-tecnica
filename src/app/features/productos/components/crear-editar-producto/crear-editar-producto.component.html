@@ -66,21 +66,38 @@
     </div>
 
     <div class="field">
-      <label>Imagen</label>
+      <label class="label">Imagen</label>
 
-      <input
-        type="file"
-        accept="image/*"
-        (change)="onFileSelect($event)"
-        class="p-inputtext-sm w-full"
-      />
+      <div class="file-upload">
+        <input
+          type="file"
+          accept="image/*"
+          (change)="onFileSelect($event)"
+          id="fileInput"
+          hidden
+        />
+
+        <label for="fileInput" class="file-button">
+          <i class="pi pi-upload"></i>
+          Seleccionar imagen
+        </label>
+      </div>
 
       @if (form.get("image")?.touched && form.get("image")?.invalid) {
-        <small class="error">Imagen es obligatoria</small>
+        <small class="error">La imagen es obligatoria</small>
       }
 
-      <div class="image-preview-card" *ngIf="imagePreview">
-        <img [src]="imagePreview()" />
+      <div class="image-preview-card">
+        <ng-container *ngIf="imagePreview(); else placeholder">
+          <img [src]="imagePreview()" />
+        </ng-container>
+
+        <ng-template #placeholder>
+          <div class="placeholder">
+            <i class="pi pi-image"></i>
+            <span>Vista previa</span>
+          </div>
+        </ng-template>
       </div>
     </div>
 

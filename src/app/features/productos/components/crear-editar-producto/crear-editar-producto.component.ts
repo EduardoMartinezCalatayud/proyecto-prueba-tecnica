@@ -142,6 +142,14 @@ export class CrearEditarProductoComponent implements OnInit {
       });
       return;
     }
+    if (this.form.value.price <= 0) {
+      this.messageService.add({
+        severity: 'warn',
+        summary: 'ERROR',
+        detail: 'El precio no puede ser igual o menor que 0.',
+      });
+      return;
+    }
     let _formValue = this.form.getRawValue();
     let request: AgregarProductoRequest = {
       id: +_formValue.id,
